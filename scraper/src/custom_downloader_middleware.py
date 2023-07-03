@@ -50,4 +50,10 @@ class CustomDownloaderMiddleware:
         if response.url == request.url + '#':
             response = response.replace(url=request.url)
 
+        if spider.base_url and spider.base_url_replacement:
+            body = reponse.body.decode(response.encoding)
+            body = body.replace(spider.base_url, spider.base_url_replacement)
+            url = url.replace(spider.base_url, spider.base_url_replacement)
+            response = response.replace(body=body.encode(reponse.encoding), url=url)
+
         return response

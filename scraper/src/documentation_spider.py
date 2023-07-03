@@ -66,6 +66,8 @@ class DocumentationSpider(CrawlSpider, SitemapSpider):
         # Scrapy config
         self.name = config.index_name
         self.allowed_domains = config.allowed_domains
+        self.base_url = config.base_url
+        self.base_url_replacement = config.base_url_replacement
         self.start_urls_full = config.start_urls
         self.start_urls = [start_url['url'] for start_url in config.start_urls]
         # We need to ensure that the stop urls are scheme agnostic too if it represents URL

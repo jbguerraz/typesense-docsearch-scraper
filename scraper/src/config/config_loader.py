@@ -27,6 +27,8 @@ class ConfigLoader:
     allowed_domains = None
     api_key = None
     app_id = None
+    base_url = None
+    base_url_replacement = None
     custom_settings = None
     extra_records = []
     index_name = None
